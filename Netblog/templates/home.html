@@ -1,0 +1,532 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog App</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<body>
+    
+    <header id="header">
+
+        <section class="header-1 flex">
+                <div class="left flex">
+                    <div class="date" id="date">
+                        <span>Friday, December 1, 2023</span>
+                    </div>
+                    <!-- <div class="animation">
+                        <a href="#">Anime</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="video">
+                        <a href="">Movies</a>
+                    </div> -->
+                </div>
+                <div class="right flex">
+                    <div class="weather-img flex">
+                        <div class="img">
+                            <img src="{% static 'images/10d.png' %}" alt="">
+                        </div>
+                        <div class="unit">
+                            <span>28°C</span>
+                        </div>
+                    </div>
+                    <!-- <div class="facebook">
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                    </div>
+                    <div class="twitter">
+                        <a href="#"><i class="uil uil-twitter-alt"></i></a>
+                    </div>
+                    <div class="instagram">
+                        <a href="#"><i class="uil uil-instagram"></i></a>
+                    </div>
+                    <div class="linkedin">
+                        <a href="#"><i class="uil uil-linkedin-alt"></i></a>
+                    </div>
+                    <div class="youtube">
+                        <a href="#"><i class="uil uil-youtube"></i></a>
+                    </div> -->
+                </div>
+        </section>
+
+        <section class="header-2 flex" id="header-2">
+
+            <div class="logo">
+                <img onclick="window.location.href='{% url 'Netblog-Home' %}'" src="{% static 'images/logo1-white.png' %}" alt="">
+            </div>
+
+            <div class="form-container">
+
+                <form action="{% url 'Netblog-Search' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="search" placeholder="Search for...." id="search" class="search" name="searched">
+                    <label type="'submit" for="search" class="uil uil-search" id="search-btn"></label>
+                </form>
+            </div>
+
+            <div class="upload flex">
+                <!-- <a href="#" class="btn">Upload Video<i class="uil uil-import"></i></a> -->
+                <div id="menu-icon" class="uil uil-bars"></div>
+            </div>
+
+            <!-- <div id="search-btn" class="uil uil-search"></div> -->
+
+            <div id="sidebar">
+                <nav class="navbar">
+                    <ul>
+                        <li id="closeMenu-icon"><i class="uil uil-times"></i></li>
+                        <li><a href="{% url 'Netblog-Home' %}">Home</a> <i class="uil uil-home"></i></li>
+                        <li><a href="{% url 'Netblog-movies' %}">Movies</a> <i class="uil uil-video"></i></li>
+                        <li><a href="{% url 'Netblog-animes' %}">Animes</a> <i class="uil uil-film"></i></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+
+
+    <main>
+        {% block content %}
+
+        <section class="banner">
+
+            <div class="img_container">
+                <img src="{% static '/images/banner5.jpg' %}" alt="">
+            </div>
+        </section>
+
+        <section class="most_views" id="most_views">
+
+            <h1 class="heading">New Movie Upload</h1>
+
+            <div class="most_views_slider">
+
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+
+
+                        {% for movie in movies %}
+                        <div class="swiper-slide">
+                            <div class="most_views_box">
+                    
+                                <div class="most_views_img">
+                                    <img src="{{ movie.Movie_Img.url }}" alt="">
+                                </div>
+            
+                                <div class="most_views_text">
+            
+                                    <span class="uil uil-video left-icon"></span>
+            
+                                    <div class="bottom_text">
+            
+                                        <div class="movie-name">
+                                            <span onclick="window.location.href='{% url 'Netblog-Category' movie.Movie_Type %}'" class="tag">{{ movie.Movie_Type }}</span>
+                                            <a href="{% url 'Netblog-Pages' movie.id %}">{{ movie.Movie_Title }}</a>
+                                            {% if movie.Movie_Season %}
+                                                <a href="{% url 'Netblog-Season-Categories' movie.Movie_Title %}" class="sub_title">{{ movie.Movie_Season }} - {{ movie.Movie_Episode }}</a>
+                                            {% else %}
+
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="slider_btns">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="movies_cafe">
+
+            <h1 class="heading">Movies Cafe</h1>
+
+            <div class="movies_cafe_slider">
+
+
+
+                <!-- Swiper -->
+                <div class="swiper myMoviesSwiper">
+                    <div class="swiper-wrapper">
+
+                        {% for movie_cafe in movie_cafes %}
+                        <div class="swiper-slide">
+
+                            <div class="movies_cafe_box">
+            
+                                <div class="movies_cafe_img">
+                                    <img src="{{ movie_cafe.Movie_Img.url }}" alt="">
+                                </div>
+                
+                                <div class="movies_cafe_text">
+            
+                                    <span class="uil uil-video left-icon"></span>
+                
+                                    <div class="bottom_text">
+                
+                                        <div class="movies_cafe_name">
+                                            <span onclick="window.location.href='{% url 'Netblog-Category' movie_cafe.Movie_Type %}'" class="tag">{{ movie_cafe.Movie_Type }}</span>
+                                            <a href="{% url 'Netblog-Pages' movie_cafe.id %}">{{ movie_cafe.Movie_Title }}</a>
+                                            {% if movie_cafe.Movie_Season %}
+                                                <a href="{% url 'Netblog-Season-Categories' movie_cafe.Movie_Title %}" class="sub_title">{{ movie_cafe.Movie_Season }} - {{ movie_cafe.Movie_Episode }}</a>
+                                            {% else %}
+
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="slider_btns">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                
+                </div>
+                
+            </div>
+
+        </section>
+
+        <section class="entertainment">
+
+            <div class="container">
+
+                <div class="left">
+
+                    <h1 class="heading">Horror Movies</h1>
+
+                    <div class="entertainment_slider">
+
+                        <div class="swiper myEntertainSwiper">
+                            <div class="swiper-wrapper">
+
+                                {% for horror in horrors %}
+
+                                <div class="swiper-slide">
+                                    <div class="entertainment_box">
+
+                                        <div class="entertain_content">
+            
+                                            <div class="ec_img">
+                                                <img src="{{ horror.Movie_Img.url }}" alt="">
+                                            </div>
+    
+                                            <div class="ec_text">
+                                                
+                                                <span class="uil uil-video left-icon"></span>
+    
+                                                <div class="ec-bottom">ss
+    
+                                                    <div class="ec_name">
+                                                        <span onclick="window.location.href='{% url 'Netblog-Category' horror.Movie_Type %}'" class="tag">{{ horror.Movie_Type }}</span>
+                                                        <a href="{% url 'Netblog-Pages' horror.id %}">{{ horror.Movie_Title }}</a>
+                                                        {% if horror.Movie_Season %}
+                                                            <a href="{% url 'Netblog-Season-Categories' horror.Movie_Title %}" class="sub_title">{{ horror.Movie_Season }} - {{ horror.Movie_Episode }}</a>
+                                                        {% else %}
+                                                        {% endif %}
+                                                        <small onclick="window.location.href='{% url 'Netblog-Date-Categories' horror.Movie_Date %}'" class="date"><i class="uil uil-stopwatch"></i>{{ horror.Movie_Date }}</small>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>                
+                        </div>
+                    </div>
+
+
+                    <div class="ads">
+
+                        <div class="ads_Container01">
+
+                            <div class="ads_content">
+
+                                <div class="ads_text">
+                                    <h3>Photography</h3>
+                                    <span>Join Us With Our Partners</span>
+                                    <a href="#" class="btn">Learn More</a>
+                                </div>
+                            </div>
+            
+                            <div class="ads_content">
+                                <div class="ads_text">
+                                    <h3>Open explorer</h3>
+                                    <span>Exploration is for everyone</span>
+                                    <a href="#" class="btn">Join Us</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ads_Container02">
+
+                            <div class="ads_content">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="latest_news">
+
+                        <h1 class="heading">Latest Anime</h1>
+
+                        <div class="latest_news_container" id="latest_news_container">
+
+                            {% for anime in animes %}
+
+                            <div class="latest_news_box">
+
+                                <div class="latest_img">
+                                    <img src="{{ anime.Movie_Img.url }}" alt="">
+                                </div>
+
+
+                                <div class="latest_news_text">
+
+                                    <span class="uil uil-video left-icon"></span>
+
+
+                                    <div class="latest_news_writeup">
+                                        <span onclick="window.location.href='{% url 'Netblog-Category' anime.Movie_Type %}'" class="tag">{{ anime.Movie_Type }}</span>
+                                        <a href="{% url 'Netblog-Pages' anime.id %}">{{ anime.Movie_Title }}</a>
+                                        {% if anime.Movie_Season %}
+                                            <a href="{% url 'Netblog-Season-Categories' anime.Movie_Title %}" class="sub_title">{{ anime.Movie_Season }} - {{ anime.Movie_Episode }}</a>
+                                        {% else %}
+                                        {% endif %}
+                                        <p>{{ anime.Movie_Body|truncatewords:15 }}</p>
+                                        <a href="{% url 'Netblog-Pages' anime.id %}" class="btn btn-secondary">View more</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                        <div id="spinner-box" class="not-visible">
+                            <div class="spinner-circle"></div>
+                        </div>
+
+                        <div id="load-btn">
+                            <button>Load more...</button>
+                        </div>
+
+                        <div id="alert" class="alert-message alert-danger not-visible">
+                            <p>No more post to load</p>
+                            <div class="icon" onclick="this.parentNode.remove();">&times;</div>
+                        </div>
+                        
+                        {{ total_animes|json_script:"json-total" }}
+
+                    </div>
+                </div>
+
+                <div class="right">            
+
+                    <div class="most_viewed">
+
+                        <h1 class="heading">Most Viewed</h1>
+
+                        <div class="most_viewed_container">
+
+                            {% for most_viewed_movie in most_viewed_movies %}
+                            <div class="most_viewed_box">
+
+                                <div class="most_viewed_img">
+                                    <img src="{{ most_viewed_movie.Movie_Img.url }}" alt="">
+                                </div>
+
+                                <div class="most_viewed_text">
+
+                                    <span class="left-icon">{{ most_viewed_movie.id }}</span>
+
+
+                                    <div class="most_viewed_writeup">
+                                        <a href="{% url 'Netblog-Pages' most_viewed_movie.id %}">{{ most_viewed_movie.Movie_Title }}</a> <br>
+                                        {% if most_viewed_movie.Movie_Season %}
+                                            <a href="{% url 'Netblog-Season-Categories' most_viewed_movie.Movie_Title %}" class="sub_title">{{ most_viewed_movie.Movie_Season }} - {{ most_viewed_movie.Movie_Episode }}</a>
+                                        {% else %}
+                                        {% endif %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+ 
+                    <div class="social_media">
+
+                        <h1 class="heading">Follow Us</h1>
+
+                        <div class="container">
+                            <a href="#" class="uil uil-facebook-f"></a>
+                            <a href="#" class="uil uil-twitter-alt"></a>
+                            <a href="#" class="uil uil-instagram"></a>
+                            <a href="#" class="uil uil-linkedin-alt"></a>
+                            <a href="#" class="uil uil-youtube"></a>
+                            <a href="#" class="uil uil-telegram-alt"></a>
+                            <a href="#" class="uil uil-snapchat-alt"></a>
+                        </div>
+                    </div>
+
+                    <div class="ads_Container03">
+
+                        <div class="ads_content03">
+
+                        </div>
+                    </div> 
+
+                    <div class="tags">
+
+                        <h1 class="heading">Tag Lists</h1>
+
+                        <div class="container">
+                            {% for tag in tags %}
+                                <a href="{% url 'Netblog-Tags-Categories' tag.name %}">{{ tag.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="popular_post">
+
+                        <h1 class="heading">Action Movies</h1>
+
+                        <div class="popular_post_container">
+                            {% for action in actions %}
+
+                            <div class="popular_post_box">
+
+                                <div class="popular_img">
+                                    <img src="{{ action.Movie_Img.url }}" alt="">
+                                </div>
+
+                                <div class="popular_post_text">
+                                    <a href="{% url 'Netblog-Pages' action.id %}">{{ action.Movie_Title }}</a>
+                                    <small onclick="window.location.href='{% url 'Netblog-Date-Categories' action.Movie_Date %}'" class="date"><i class="uil uil-stopwatch"></i>{{ action.Movie_Date|date:"d F Y" }}</small>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock content %}
+
+        {% block video %}
+        <section class="video_gallery">
+
+            <h1 class="heading">Romantic Movies</h1>
+
+            <div class="video_gallery_container">
+
+                {% for romantic in romantics %}
+
+                <div class="video_gallery_box">
+
+                    <div class="video_gallery_img">
+                        <img src="{{ romantic.Movie_Img.url }}" alt="">
+                    </div>
+
+                    <div class="video_gallery_text">
+            
+                        <span class="uil uil-video left-icon"></span>
+
+                        <div class="video_gallery_Btext">
+
+                            <div class="video_gallery-name">
+                                <span onclick="window.location.href='{% url 'Netblog-Category' romantic.Movie_Type %}'" class="tag">{{ romantic.Movie_Type }}</span>
+                                <strong onclick="window.location.href='{% url 'Netblog-Pages' romantic.id %}'">{{ romantic.Movie_Title }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+            <div class="pagination">
+                <ul class="page">
+                    {% if romantics.has_previous %}
+                        <a href="?page=1"><li>&laquo First</li></a>
+                        <a href="?page={{ romantics.previous_page_number }}"><li>Previous</li></a>
+                    {% endif %}
+
+                    <li>Page {{romantics.number}} of {{romantics.paginator.num_pages}}</li>
+
+                    {% if romantics.has_next %}
+                        <a href="?page={{ romantics.next_page_number }}"><li>next</li></a>
+                        <a href="?page={{ romantics.paginator.num_pages }}"><li>last &raquo</li></a>
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+        {% endblock video %}
+        
+    </main>
+
+
+    <footer>
+        <div class="credit">Ne<span>Tube</span> | all rights reserved</div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+{% extends 'home.html' %}
+{% block content %}
+
+        
+<section class="movies_cafe">
+
+    <h1 class="heading">Movies Cafe</h1>
+
+    <div class="movies_cafe_slider">
+
+
+
+        <!-- Swiper -->
+        <div class="swiper myMoviesSwiper">
+            <div class="swiper-wrapper">
+
+                {% for movie_cafe in movie_cafes %}
+                <div class="swiper-slide">
+
+                    <div class="movies_cafe_box">
+    
+                        <div class="movies_cafe_img">
+                            <img src="{{ movie_cafe.Movie_Img.url }}" alt="">
+                        </div>
+        
+                        <div class="movies_cafe_text">
+    
+                            <span class="uil uil-video left-icon"></span>
+        
+                            <div class="bottom_text">
+        
+                                <div class="movies_cafe_name">
+                                    <span onclick="window.location.href='{% url 'Netblog-Category' movie_cafe.Movie_Type %}'" class="tag">{{ movie_cafe.Movie_Type }}</span>
+                                    <a href="{% url 'Netblog-Pages' movie_cafe.id %}">{{ movie_cafe.Movie_Title }}</a>
+                                    {% if movie_cafe.Movie_Season %}
+                                        <a href="{% url 'Netblog-Season-Categories' movie_cafe.Movie_Title %}" class="sub_title">{{ movie_cafe.Movie_Season }} - {{ movie_cafe.Movie_Episode }}</a>
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+            <div class="slider_btns">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        
+        </div>
+        
+    </div>
+
+</section>
+
+
+<section class="entertainment">
+
+    <div class="container">
+
+        <div class="left">
+
+            <div class="categories">
+
+                <div class="c_header">
+
+                    <h2>Movies</h2>
+
+                    <div class="c_link">
+                        <a href="{% url 'Netblog-Home' %}" class="uil uil-home">Home</a>
+                        <i class="uil uil-arrow-right"></i>
+                        <h4>Anime</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categories_section">
+
+                <div class="cs_container">
+                    
+                    {% for category in categories %}
+                    <div class="cs_box">
+
+                        <div class="cs_img">
+                            <img src="{{ category.Movie_Img.url }}" alt="">
+                        </div>
+
+                        <div class="cs_text">
+
+                            <span class="uil uil-video left-icon"></span>
+
+                            <div class="cs_writeup">
+                                <span onclick="window.location.href='{% url 'Netblog-Category' category.Movie_Type %}'" class="tag">{{ category.Movie_Type }}</span>
+                                <a href="{% url 'Netblog-Pages' category.id %}" class="cs_title">{{ category.Movie_Title }}</a>
+                                {% if category.Movie_Season %}
+                                    <a href="{% url 'Netblog-Season-Categories' category.Movie_Title %}" class="sub_title">{{ category.Movie_Season }} - {{ category.Movie_Episode }}</a>     
+                                {% else %}
+                                {% endif %}                           
+                                <div class="cs_section">
+                                    {% for tag in category.Movie_Tag.all|slice:"1" %}
+                                        <a href="{% url 'Netblog-Tags-Categories' tag.name %}">{{ tag.name }}</a>
+                                    {% endfor %}
+                                    <span>|</span>                                            
+                                    <a href="{% url 'Netblog-Date-Categories' category.Movie_Date %}" class="uil uil-stopwatch">{{ category.Movie_Date|date:"d F Y" }}</a>
+                                </div>
+                                <p class="cs_note">{{ category.Movie_Body|truncatewords:13 }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="pagination">
+                    <ul class="page">
+                        {% if categories.has_previous %}
+                            <a href="?page=1"><li>&laquo First</li></a>
+                            <a href="?page={{ categories.previous_page_number }}"><li>Previous</li></a>
+                        {% endif %}
+
+                        <li>Page {{categories.number}} of {{categories.paginator.num_pages}}</li>
+
+                        {% if categories.has_next %}
+                            <a href="?page={{ categories.next_page_number }}"><li>next</li></a>
+                            <a href="?page={{ categories.paginator.num_pages }}"><li>last &raquo</li></a>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="right">
+            
+            <div class="most_viewed">
+
+                <h1 class="heading">Most Viewed</h1>
+
+                <div class="most_viewed_container">
+
+                    {% for most_viewed_movie in most_viewed_movies %}
+                    <div class="most_viewed_box">
+
+                        <div class="most_viewed_img">
+                            <img src="{{ most_viewed_movie.Movie_Img.url }}" alt="">
+                        </div>
+
+                        <div class="most_viewed_text">
+
+                            <span class="left-icon">{{ most_viewed_movie.id }}</span>
+
+
+                            <div class="most_viewed_writeup">
+                                <a href="{% url 'Netblog-Pages' most_viewed_movie.id %}">{{ most_viewed_movie.Movie_Title }}</a> <br>
+                                {% if most_viewed_movie.Movie_Season %}
+                                    <a href="{% url 'Netblog-Season-Categories' most_viewed_movie.Movie_Title %}" class="sub_title">{{ most_viewed_movie.Movie_Season }} - {{ most_viewed_movie.Movie_Episode }}</a>
+                                {% else %}
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="social_media">
+
+                <h1 class="heading">Follow Us</h1>
+
+                <div class="container">
+                    <a href="#" class="uil uil-facebook-f"></a>
+                    <a href="#" class="uil uil-twitter-alt"></a>
+                    <a href="#" class="uil uil-instagram"></a>
+                    <a href="#" class="uil uil-linkedin-alt"></a>
+                    <a href="#" class="uil uil-youtube"></a>
+                    <a href="#" class="uil uil-telegram-alt"></a>
+                    <a href="#" class="uil uil-snapchat-alt"></a>
+                </div>
+            </div>
+
+            <div class="ads_Container03">
+
+                <div class="ads_content03">
+
+                </div>
+            </div> 
+
+            <div class="tags">
+
+                <h1 class="heading">Tag Lists</h1>
+
+                <div class="container">
+                    {% for tag in tags %}
+                        <a href="{% url 'Netblog-Tags-Categories' tag.name %}">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="popular_post">
+
+                <h1 class="heading">Action Movies</h1>
+                
+                <div class="popular_post_container">
+                    {% for action in actions %}
+
+                    <div class="popular_post_box">
+
+                        <div class="popular_img">
+                            <img src="{{ action.Movie_Img.url }}" alt="">
+                        </div>
+
+                        <div class="popular_post_text">
+                            <a href="{% url 'Netblog-Pages' action.id %}">{{ action.Movie_Title }}</a>
+                            <small onclick="window.location.href='{% url 'Netblog-Date-Categories' action.Movie_Date %}'" class="date"><i class="uil uil-stopwatch"></i>{{ action.Movie_Date|date:"d F Y" }}</small>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block video %}
+{% endblock video %}
