@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog App</title>
+    
+    {% if title %}
+        <title>{{ title }} - NetZone</title>
+    {% else %}
+        <title>NetZone</title>
+    {% endif %}
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
@@ -104,7 +109,7 @@
 
         <section class="most_views" id="most_views">
 
-            <h1 class="heading">New Movie Upload</h1>
+            <h1 class="heading">Latest Releases</h1>
 
             <div class="most_views_slider">
 
@@ -498,7 +503,7 @@
 
 
     <footer>
-        <div class="credit">Ne<span>Tube</span> | all rights reserved</div>
+        <div class="credit">NET<span>ZONE</span> | all rights reserved</div>
     </footer>
 
 

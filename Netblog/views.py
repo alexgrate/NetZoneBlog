@@ -112,7 +112,8 @@ def pages(request, id):
         'prev_movie' : prev_movie,
         'movie_relateds': movie_relateds,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : f'{movie_title}'
     }
     return render(request, 'pages.html', model)
 
@@ -138,7 +139,8 @@ def categories(request, movie_type):
         'movie_type' : movie_type,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : f'{movie_type}'
     }
     return render(request, 'categories.html', model)
 
@@ -165,7 +167,8 @@ def tag_categories(request, name):
         'name' : name,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : f'{name}'
     }
     return render(request, 'tagCategory.html', model)
 
@@ -192,7 +195,8 @@ def date_categories(request, movie_date):
         'movie_date' : movie_date,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : f'{movie_date}'
     }
     return render(request, 'dateCategory.html', model)
 
@@ -219,7 +223,8 @@ def seasons_categories(request, movie_title):
         'movie_season' : movie_title,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : f'{movie_title}'
     }
     return render(request, 'seasonsCategory.html', model)
 
@@ -245,7 +250,8 @@ def movies(request):
         'categories' : categories,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : 'Movies'
     }
     return render(request, 'movies.html', model)
 
@@ -271,7 +277,8 @@ def anime(request):
         'categories' : categories,
         'most_viewed_movies' : most_viewed_movies,
         'tags' : tags,
-        'actions' : actions
+        'actions' : actions,
+        'title' : 'Animes'
     }
     return render(request, 'animes.html', model)
 
@@ -287,7 +294,7 @@ def search(request):
         searched = request.POST['searched']
         searched_movies = Movie.objects.filter(Movie_Title__contains = searched)
         
-        model = {'most_viewed_movies' : most_viewed_movies,'tags' : tags, 'actions' : actions, 'searched' : searched, 'searched_movies' : searched_movies}
+        model = {'most_viewed_movies' : most_viewed_movies,'tags' : tags, 'actions' : actions, 'searched' : searched, 'searched_movies' : searched_movies, 'title': f'You Searched For {searched}'}
         return render(request, 'search.html', model)
     else:
         model = {'most_viewed_movies' : most_viewed_movies,'tags' : tags, 'actions' : actions}
