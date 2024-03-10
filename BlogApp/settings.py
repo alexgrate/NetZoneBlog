@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!auk=y0zo(5oaxussi&+!7u_&fc^exxo2xl=#r#tp@+=(@9*h5'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['netzone.onrender.com', 'localhost','www.netzone.ng']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'BlogApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get("DATABASES_NAME"),
+        'USER': os.environ.get("DATABASES_USER"),
+        'PASSWORD' : os.environ.get("DATABASES_PASSWORD"),
+        'HOST' : os.environ.get("DATABASES_HOST"),
+        'PORT' : os.environ.get("DATABASES_PORT"),
     }
 }
 
