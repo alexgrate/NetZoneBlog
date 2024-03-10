@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ['netzone.onrender.com', 'localhost','www.netzone.ng', '127.0.0.1']
 
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'BlogApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get("DATABASES_NAME"),
-        'USER': os.environ.get("DATABASES_USER"),
-        'PASSWORD' : os.environ.get("DATABASES_PASSWORD"),
-        'HOST' : os.environ.get("DATABASES_HOST"),
-        'PORT' : os.environ.get("DATABASES_PORT"),
+        'NAME': 'netzonen_Movies',
+        'USER': 'netzonen_AlexGrate',
+        'PASSWORD' : 'Dominion@123',
+        'HOST' : '160.119.252.183',
+        'PORT' : '3306',
     }
 }
 
