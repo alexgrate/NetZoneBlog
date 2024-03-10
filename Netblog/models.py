@@ -17,6 +17,7 @@ class Movie(models.Model):
     Movie_Trailer = models.CharField(max_length = 1000)
     Movie_Type = models.CharField(max_length= 350)
     Movie_Download_Link = models.CharField(max_length= 1000)
+    Movie_Subtitle_Download_Link = models.CharField(max_length= 1000, blank=True, default = '')
     Movie_Img = models.ImageField(upload_to= 'images', default=' ')
     Movie_views = models.IntegerField(default=0)
     Movie_Tag = models.ManyToManyField(Movie_Tag)

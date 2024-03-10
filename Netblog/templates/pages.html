@@ -52,6 +52,13 @@
                         <div class="download_btn">
                             <a href="{{ movie.Movie_Download_Link }}" class="btn"><i class="uil uil-file-download-alt"></i>Download</a>
                         </div>
+
+                        {% if movie.Movie_Subtitle_Download_Link %}
+                        <div class="download_btn">
+                            <a href="{{ movie.Movie_Subtitle_Download_Link }}" class="btn"><i class="uil uil-file-download-alt"></i>Subtitle</a>
+                        </div>
+                        {% else %}
+                        {% endif %}
                         <div class="post_nav">
                             <div class="post_nav_link">
                                 <i class="uil uil-angle-left"></i>
