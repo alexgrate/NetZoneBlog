@@ -13,11 +13,20 @@ let closeSidebar = document.querySelector('#closeMenu-icon')
 
 Sidebar.onclick = () => {
     Sidemenu.classList.toggle('active')
+    searchForm.classList.remove('active')
 }
 
 document.getElementById('closeMenu-icon').addEventListener('click', function() {
     document.getElementById('sidebar').classList.remove('active');
 });
+
+
+let searchForm = document.querySelector('#search')
+
+document.querySelector('#search-btn').onclick = () =>{
+    searchForm.classList.toggle('active')
+    Sidemenu.classList.remove('active')
+}
 
 
 var swiper = new Swiper(".mySwiper", {
@@ -130,12 +139,6 @@ window.onscroll = () => {
 
 function handleClick(event) {
     event.preventDefault();}
-
-let searchForm = document.querySelector('#search')
-
-document.querySelector('#search-btn').onclick = () =>{
-    searchForm.classList.toggle('active')
-}
 
 
 
