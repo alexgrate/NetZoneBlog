@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Netzone-Entertainment-Website" />
     <meta name="author" content="netzone.ng" />
-    
+
+    <meta property="og:description" content="Stay up-to-date with the latest movie, anime, Kdramas and so on.">
+    <meta property="og:image" content="{% static '/images/banner5.jpg' %}">
+
     {% if title %}
+        <meta property="og:title" content="{{ title }} - NetZone">
         <title>{{ title }} - NetZone</title>
     {% else %}
+        <meta property="og:title" content="NetZone">
         <title>NetZone</title>
     {% endif %}
 
