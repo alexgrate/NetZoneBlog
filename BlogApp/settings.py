@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-!auk=y0zo(5oaxussi&+!7u_&fc^exxo2xl=#r#tp@+=(@9*h5
 # DEBUG = os.environ.get("DEBUG")
 DEBUG = True
 
-ALLOWED_HOSTS = ['netzone.onrender.com', 'localhost','www.netzone.ng', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng']
 
 
 # Application definition
@@ -124,8 +124,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR/'assets'
+STATIC_ROOT = '/home/alexgrate/NetZoneBlog/static'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
