@@ -93,10 +93,11 @@ def pages(request, id):
         
     similar_title_movies = Movie.objects.filter(Q(Movie_Title__icontains=movie_title) & ~Q(id=movie.id))
     if similar_title_movies.exists():
-        movie_relateds = similar_title_movies.order_by('Movie_Title')
+        movie_relateds = similar_title_movies.order_by('-Movie_Date')
     else:
         # Fetch related movies based on movie_type if no similar titles found
-        movie_relateds = Movie.objects.filter(Movie_Type__icontains=movie_type).exclude(id=movie.id).order_by('Movie_Type')
+        movie_relateds = list(Movie.objects.filter(Movie_Type__icontains=movie_type).exclude(id=movie.id).order_by('Movie_Type', '-Movie_Date'))
+        random.shuffle(movie_relateds)
         
     paginator = Paginator(movie_relateds, 5)
     page_number = request.GET.get('page')
