@@ -1,5 +1,6 @@
 __pycache__/
-netblog/__pycache__/
+Netblog/__pycache__/
+BlogApp/__pycache__/
 *.pyc
 *.pyo
 venv/
