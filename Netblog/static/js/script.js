@@ -28,6 +28,15 @@ document.querySelector('#search-btn').onclick = () =>{
     Sidemenu.classList.remove('active')
 }
 
+function closeSidebarAndSearchForm() {
+    Sidemenu.classList.remove('active');
+    searchForm.classList.remove('active');
+}
+
+window.addEventListener('scroll', () => {
+    closeSidebarAndSearchForm();
+})
+
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
