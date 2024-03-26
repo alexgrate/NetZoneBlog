@@ -28,13 +28,9 @@ document.querySelector('#search-btn').onclick = () =>{
     Sidemenu.classList.remove('active')
 }
 
-function closeSidebarAndSearchForm() {
+window.onscroll = () => {
     Sidemenu.classList.remove('active');
     searchForm.classList.remove('active');
-}
-
-window.onscroll = () => {
-    closeSidebarAndSearchForm();
 }
 
 var swiper = new Swiper(".mySwiper", {
