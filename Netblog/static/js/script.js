@@ -33,10 +33,9 @@ function closeSidebarAndSearchForm() {
     searchForm.classList.remove('active');
 }
 
-window.addEventListener('scroll', () => {
+window.onscroll = () => {
     closeSidebarAndSearchForm();
-})
-
+}
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
