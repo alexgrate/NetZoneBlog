@@ -13,9 +13,3 @@ urlpatterns = [
     path('NetBlog/Date/Category/<str:movie_date>', views.date_categories, name= 'Netblog-Date-Categories'),
     path('NetBlog/Season/Category/<str:movie_title>', views.seasons_categories, name= 'Netblog-Season-Categories'),
 ]
-
-
-from django.conf.urls import handler404, handler500
-
-handler404 = views.handler404
-handler500 = views.handler500
