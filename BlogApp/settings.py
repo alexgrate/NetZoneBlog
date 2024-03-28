@@ -59,7 +59,7 @@ ROOT_URLCONF = 'BlogApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/alexgrate/NetZoneBlog/Netblog/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
