@@ -60,18 +60,21 @@ var swiper = new Swiper(".mySwiper", {
         },
         },
   });
-
-var swiper = new Swiper(".myMoviesSwiper", {
+  var swiper = new Swiper(".myMoviesSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
     freeMode: true,
     pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+        el: ".swiper-pagination",
+        clickable: true,
     },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 5000, // Adjust the delay (in milliseconds) as needed
+        disableOnInteraction: false, // Set to false to continue autoplay even when user interacts with the swiper
     },
     breakpoints: {
         400: {
@@ -86,8 +89,9 @@ var swiper = new Swiper(".myMoviesSwiper", {
             slidesPerView: 4,
             spaceBetween: 10,
         },
-        },
+    },
 });
+
 
 var swiper = new Swiper(".myEntertainSwiper", {
     slidesPerView: 3,
