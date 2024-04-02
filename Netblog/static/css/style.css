@@ -1211,7 +1211,6 @@ ADS STYLING
 -------------------------------- */
 
 .ads_Container03{
-    border: 1px dotted var(--COLOUR-TRANSPARENT-DARK-GREY);
     border-radius: 5px;
     border-width: 2px;
     margin: 3rem 1rem;
@@ -1221,7 +1220,6 @@ ADS STYLING
 .ads_Container03 .ads_content03{
     width: 100%;
     height: 300px;
-    background: var(--COLOUR-TRANSPARENT-DARK-GREY);
 }
 
 /* -----------------------------
