@@ -945,7 +945,7 @@ ADS STYLING
 .ads_Container02 .ads_content{
     width: 100%;
     height: 100px;
-    background: var(--COLOUR-TRANSPARENT-DARK-GREY);
+    /* background: var(--COLOUR-TRANSPARENT-DARK-GREY); */
 }
 
 /* -----------------------------
