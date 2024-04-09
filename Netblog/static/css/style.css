@@ -440,11 +440,11 @@ BANNER STYLING
 }
 
 .banner .img_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 728px;
+    width: 100%;
     height: auto;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
 }
 
 /* .img_container img{
