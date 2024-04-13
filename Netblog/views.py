@@ -304,6 +304,9 @@ def search(request):
 
 def ads_txt(request):
     ads_content = """
+    
+    google.com, pub-8616826559084236, DIRECT, f08c47fec0942fa0
+
     ### ForeMedia START ###
 google.com, pub-1444749628606253, DIRECT, f08c47fec0942fa0
 google.com, pub-7011958834410891, DIRECT, f08c47fec0942fa0
