@@ -13,4 +13,5 @@ urlpatterns = [
     path('NetBlog/Date/Category/<str:movie_date>', views.date_categories, name= 'Netblog-Date-Categories'),
     path('NetBlog/Season/Category/<str:movie_title>', views.seasons_categories, name= 'Netblog-Season-Categories'),
     path('ads.txt', views.ads_txt, name='ads_txt'),
+    path('sw.js', views.sw_txt, name='sw_js'),
 ]
