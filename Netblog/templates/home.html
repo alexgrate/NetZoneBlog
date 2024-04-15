@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Netzone-Entertainment-Website" />
     <meta name="author" content="netzone.ng" />
-    <meta name="robots" content="index,follow">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
 
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Download latest Hollywood Movies, Animes, Kdramas and so on. www.netzone.ng">
     <meta property="og:image" content="{% static 'images/og.image.png' %}">
-    <meta property="og:url" content="https://netzone.ng" />
+    <meta property="og:url" content="https://www.netzone.ng" />
+    <meta property="og:site_name" content="Netzone" />
     <meta property="og:image:width" content="720" />
     <meta property="og:image:height" content="405" />
+
+    <meta name="google-site-verification" content="4Zyxkpx8G-Fvz9NacQSoplDUkMIlGQIHEcxOO3q0oYc" />
 
     <!-- MONETAG META ADS -->
     <meta name="monetag" content="8a12ed2a290768bc3ac384f5869d272d">
@@ -136,15 +140,16 @@
         <section class="banner">
 
             <div class="img_container">
-                <iframe id="adFrame" frameborder="0" scrolling="no" width="728" height="90"></iframe>
-
                 <script type="text/javascript">
-                    // Create a new iframe element
-                    var iframe = document.getElementById("adFrame");
-            
-                    // Set the source of the iframe to the ad script
-                    iframe.src = "//ignateignatetame.com/a5a6cb1e3c093a7bd9072538d5dd8126/invoke.js";
+                    atOptions = {
+                        'key' : 'a5a6cb1e3c093a7bd9072538d5dd8126',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
                 </script>
+                <script type="text/javascript" src="//ignateignatetame.com/a5a6cb1e3c093a7bd9072538d5dd8126/invoke.js"></script>
             </div>
         </section>
 
@@ -426,16 +431,16 @@
                     </div> -->
 
                     <div class="ads_Container03">
-
-                            <iframe id="small_adFrame" frameborder="0" scrolling="no" width="300" height="250"></iframe>
-
-                            <script type="text/javascript">
-                                // Create a new iframe element
-                                var iframe = document.getElementById("small_adFrame");
-
-                                // Set the source of the iframe to the ad script
-                                iframe.src = "//ignateignatetame.com/4592a5c5923ab098e7098a660e442b65/invoke.js";
-                            </script>
+                        <script type="text/javascript">
+                            atOptions = {
+                                'key' : '4592a5c5923ab098e7098a660e442b65',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script type="text/javascript" src="//ignateignatetame.com/4592a5c5923ab098e7098a660e442b65/invoke.js"></script>
                     </div> 
 
                     <div class="tags">
