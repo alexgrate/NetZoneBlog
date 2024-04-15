@@ -28,10 +28,6 @@ document.querySelector('#search-btn').onclick = () =>{
     Sidemenu.classList.remove('active')
 }
 
-window.onscroll = () => {
-    Sidemenu.classList.remove('active');
-    searchForm.classList.remove('active');
-}
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -129,24 +125,24 @@ var swiper = new Swiper(".myEntertainSwiper", {
 });
 
 
-let rightbar = document.getElementsByClassName('right');
-let rightbarContent = document.getElementsByClassName('most_viewed');
+// let rightbar = document.getElementsByClassName('right');
+// let rightbarContent = document.getElementsByClassName('most_viewed');
 
-window.onscroll = () => {
-    let scrollTop = window.scrollY
-    let viewportHeight = window.innerHeight
-    let contentHeight = rightbarContent.getBoundingClientRect().height
+// window.onscroll = () => {
+//     let scrollTop = window.scrollY
+//     let viewportHeight = window.innerHeight
+//     let contentHeight = rightbarContent.getBoundingClientRect().height
 
-    if(scrollTop >= contentHeight - viewportHeight) {
-        rightbarContent.style.position = "fixed"
-    }
-    else{
-        rightbarContent.style.position = ""
-    }
-}
+//     if(scrollTop >= contentHeight - viewportHeight) {
+//         rightbarContent.style.position = "fixed"
+//     }
+//     else{
+//         rightbarContent.style.position = ""
+//     }
+// }
 
-function handleClick(event) {
-    event.preventDefault();}
+// function handleClick(event) {
+//     event.preventDefault();}
 
 
 

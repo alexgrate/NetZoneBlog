@@ -884,19 +884,8 @@ ADS STYLING
 
 -------------------------------- */
 .ads .ads_Container01{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3rem;
     padding: 5rem 0;
     overflow: hidden;
-}
-
-.ads_Container01 .ads_content{
-    width: 100%;
-    height: 300px;
-    text-align: center;
-    background-position: center;
-    background-size: cover;
 }
 
 .ads_text{
@@ -1211,16 +1200,13 @@ ADS STYLING
 -------------------------------- */
 
 .ads_Container03{
+    border: 1px solid #434242;
     border-radius: 5px;
     border-width: 2px;
     margin: 3rem 1rem;
     padding: 1rem;
 }
 
-.ads_Container03 .ads_content03{
-    width: 100%;
-    height: 300px;
-}
 
 /* -----------------------------
 
