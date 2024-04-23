@@ -1635,6 +1635,22 @@ POST TITLE STYLING
     text-align: right;
 }
 
+.season-epi{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.season-epi span{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--COLOUR-LIGHT-BROWNISH);
+}
+
+
+
 /*====================
 
 END OF POST TITLE STYLING

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Movie, Movie_Tag
+from .models import Movie, Movie_Tag, Episode
 import random
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponse
@@ -91,6 +91,8 @@ def pages(request, id):
     if prev_movie is None:
         prev_movie = Movie.objects.filter(Movie_Type=movie_type).order_by('-id').first()
         
+    episodes = Episode.objects.all()
+    
     similar_title_movies = Movie.objects.filter(Q(Movie_Title__icontains=movie_title) & ~Q(id=movie.id))
     if similar_title_movies.exists():
         movie_relateds = similar_title_movies.order_by('-Movie_Date')
@@ -98,6 +100,7 @@ def pages(request, id):
         # Fetch related movies based on movie_type if no similar titles found
         movie_relateds = list(Movie.objects.filter(Movie_Type__icontains=movie_type).exclude(id=movie.id).order_by('Movie_Type', '-Movie_Date'))
         random.shuffle(movie_relateds)
+        
         
     paginator = Paginator(movie_relateds, 5)
     page_number = request.GET.get('page')
@@ -114,7 +117,8 @@ def pages(request, id):
         'movie_relateds': movie_relateds,
         'tags' : tags,
         'actions' : actions,
-        'title' : f'{movie_title}'
+        'title' : f'{movie_title}',
+        'episodes' : episodes,
     }
     return render(request, 'pages.html', model)
 
@@ -1590,7 +1594,6 @@ adingo.jp, 28135, RESELLER
 ###Fluct End###
     """    
     return HttpResponse(ads_content, content_type='text/plain')
-
 
 def sw_txt(request):
     sw_content = """

@@ -7,6 +7,7 @@ class Movie_Tag(models.Model):
     
     def __str__(self):
         return self.name
+    
 
 class Movie(models.Model):
     Movie_Title = models.CharField(max_length = 100)
@@ -34,5 +35,17 @@ class Movie(models.Model):
             output_size = (853, 1250)
             img.thumbnail(output_size)
             img.save(self.Movie_Img.path)
+
+
+class Episode(models.Model):
+    Season = models.CharField(max_length = 15, blank=True)
+    Episode = models.CharField(max_length = 15, blank=True)
+    Download_Link = models.CharField(max_length= 1000, blank=True)
+    Subtitle_Download_Link = models.CharField(max_length= 1000, blank=True, default = '')
+    date = models.DateField(auto_now_add=True)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='episodes')
+    
+    def __str__(self):
+        return f"{self.movie.Movie_Title} - {self.Season} - Episode {self.Episode}"
 
 
