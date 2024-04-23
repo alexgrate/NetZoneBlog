@@ -91,7 +91,8 @@ def pages(request, id):
     if prev_movie is None:
         prev_movie = Movie.objects.filter(Movie_Type=movie_type).order_by('-id').first()
         
-    episodes = Episode.objects.all()
+    episodes = Episode.objects.filter(movie=movie)
+
     
     similar_title_movies = Movie.objects.filter(Q(Movie_Title__icontains=movie_title) & ~Q(id=movie.id))
     if similar_title_movies.exists():
