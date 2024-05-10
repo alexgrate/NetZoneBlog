@@ -929,6 +929,9 @@ ADS STYLING
     border-width: 2px;
     margin: 1rem;
     padding: 1rem;
+    width: 250px; /* Adjust width as needed */
+    height: 250px; /* Set the same height as width for a square */
+    
 }
 
 .ads_Container02 .ads_content{
