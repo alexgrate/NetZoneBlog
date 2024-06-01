@@ -100,7 +100,7 @@ var swiper = new Swiper(".myEntertainSwiper", {
       clickable: true,
     },
     autoplay: {
-        delay: 2000, // Set the delay in milliseconds (e.g., 5000ms = 5 seconds)
+        delay: 5000, // Set the delay in milliseconds (e.g., 5000ms = 5 seconds)
         disableOnInteraction: false, // Set to false to continue autoplay even when user interacts with the swiper
     },
     loop: true, // Enable infinite loop
