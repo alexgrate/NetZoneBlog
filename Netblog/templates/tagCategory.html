@@ -20,7 +20,7 @@
                     <div class="movies_cafe_box">
     
                         <div class="movies_cafe_img">
-                            <img loading="lazy" src="{{ movie_cafe.Movie_Img.url }}" alt="">
+                            <img loading="lazy" src="{{ movie_cafe.Movie_Img.url }}" alt="{{ movie_cafe.Movie_Title }}">
                         </div>
         
                         <div class="movies_cafe_text">
@@ -85,7 +85,7 @@
                     <div class="cs_box">
 
                         <div class="cs_img">
-                            <img loading="lazy" src="{{ category.Movie_Img.url }}" alt="">
+                            <img loading="lazy" src="{{ category.Movie_Img.url }}" alt="{{ category.Movie_Title }}">
                         </div>
 
                         <div class="cs_text">
@@ -145,7 +145,7 @@
                     <div class="most_viewed_box">
 
                         <div class="most_viewed_img">
-                            <img loading="lazy" src="{{ most_viewed_movie.Movie_Img.url }}" alt="">
+                            <img loading="lazy" src="{{ most_viewed_movie.Movie_Img.url }}" alt="{{ most_viewed_movie.Movie_Title }}">
                         </div>
 
                         <div class="most_viewed_text">
@@ -185,7 +185,6 @@
             </div> -->
 
             <div class="ads_Container03">
-
             </div> 
 
             <div class="tags">
@@ -209,7 +208,7 @@
                     <div class="popular_post_box">
 
                         <div class="popular_img">
-                            <img loading="lazy" src="{{ action.Movie_Img.url }}" alt="">
+                            <img loading="lazy" src="{{ action.Movie_Img.url }}" alt="{{ action.Movie_Title }}">
                         </div>
 
                         <div class="popular_post_text">

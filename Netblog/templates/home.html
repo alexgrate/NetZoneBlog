@@ -99,7 +99,7 @@
         <section class="header-2 flex" id="header-2">
 
             <div class="logo">
-                <img onclick="window.location.href='{% url 'Netblog-Home' %}'" src="{% static 'images/logo1-white.png' %}" alt="">
+                <img onclick="window.location.href='{% url 'Netblog-Home' %}'" src="{% static 'images/logo1-white.png' %}" alt="Netzone Logo Image">
             </div>
 
             <div class="form-container">
@@ -169,7 +169,7 @@
                             <div class="most_views_box">
                     
                                 <div class="most_views_img">
-                                    <img loading="lazy" src="{{ movie.Movie_Img.url }}" alt="">
+                                    <img loading="lazy" src="{{ movie.Movie_Img.url }}" alt="{{ movie.Movie_Title }}">
                                 </div>
             
                                 <div class="most_views_text">
@@ -222,7 +222,7 @@
                             <div class="movies_cafe_box">
             
                                 <div class="movies_cafe_img">
-                                    <img loading="lazy" src="{{ movie_cafe.Movie_Img.url }}" alt="">
+                                    <img loading="lazy" src="{{ movie_cafe.Movie_Img.url }}" alt="{{ movie_cafe.Movie_Title }}">
                                 </div>
                 
                                 <div class="movies_cafe_text">
@@ -280,7 +280,7 @@
                                         <div class="entertain_content">
             
                                             <div class="ec_img">
-                                                <img loading="lazy" src="{{ horror.Movie_Img.url }}" alt="">
+                                                <img loading="lazy" src="{{ horror.Movie_Img.url }}" alt="{{ horror.Movie_Title }}">
                                             </div>
     
                                             <div class="ec_text">
@@ -333,7 +333,7 @@
                             <div class="latest_news_box">
 
                                 <div class="latest_img">
-                                    <img loading="lazy" src="{{ anime.Movie_Img.url }}" alt="">
+                                    <img loading="lazy" src="{{ anime.Movie_Img.url }}" alt="{{ anime.Movie_Title }}">
                                 </div>
 
 
@@ -390,7 +390,7 @@
                             <div class="most_viewed_box">
 
                                 <div class="most_viewed_img">
-                                    <img loading="lazy" src="{{ most_viewed_movie.Movie_Img.url }}" alt="">
+                                    <img loading="lazy" src="{{ most_viewed_movie.Movie_Img.url }}" alt="{{ most_viewed_movie.Movie_Title }}">
                                 </div>
 
                                 <div class="most_viewed_text">
@@ -465,7 +465,7 @@
                             <div class="popular_post_box">
 
                                 <div class="popular_img">
-                                    <img loading="lazy" src="{{ action.Movie_Img.url }}" alt="">
+                                    <img loading="lazy" src="{{ action.Movie_Img.url }}" alt="{{ action.Movie_Title }}">
                                 </div>
 
                                 <div class="popular_post_text">
@@ -495,7 +495,7 @@
                 <div class="video_gallery_box">
 
                     <div class="video_gallery_img">
-                        <img loading="lazy" src="{{ romantic.Movie_Img.url }}" alt="">
+                        <img loading="lazy" src="{{ romantic.Movie_Img.url }}" alt="{{ romantic.Movie_Title }}">
                     </div>
 
                     <div class="video_gallery_text">
