@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!auk=y0zo(5oaxussi&+!7u_&fc^exxo2xl=#r#tp@+=(@9*h5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG")
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng']
 
