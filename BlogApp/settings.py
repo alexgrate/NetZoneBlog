@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng']
 
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Netblog.apps.NetblogConfig',
+    'django.contrib.sites',
+    'django.contrib.sitemaps'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

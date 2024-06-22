@@ -19,10 +19,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from Netblog.views import load_more
+from django.contrib.sitemaps.views import sitemap
+from Netblog.sitemaps import StaticViewsSitemap
+
+sitemaps = {
+    'sitemap': StaticViewsSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Netblog.urls')),
+    path("sitemap.xml",sitemap,{"sitemaps": sitemaps},name="django.contrib.sitemaps.views.sitemap",),
     path('load/', load_more, name='load'),
 ]
 
