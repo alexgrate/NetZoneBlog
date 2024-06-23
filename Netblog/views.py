@@ -1605,3 +1605,9 @@ def sw_txt(request):
 def movie_detail(request, id):
     movie = get_object_or_404(Movie, id=id)
     return render(request, 'movie_detail.html', {'movie': movie})
+
+def robots_txt(request):
+    robots_content = """
+    Sitemap: https://www.netzone.ng/sitemap.xml
+    """
+    return HttpResponse(robots_content, content_type='text/plain')
