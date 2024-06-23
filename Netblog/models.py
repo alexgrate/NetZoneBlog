@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
 from PIL import Image
 
 
@@ -23,6 +25,9 @@ class Movie(models.Model):
     Movie_views = models.IntegerField(default=0)
     Movie_Tag = models.ManyToManyField(Movie_Tag)
 
+    def get_absolute_url(self):
+        movie_name = slugify(self.Movie_Title)
+        return reverse('episode-list', kwargs={'movie_id': self.id, 'movie_name': movie_name})
     
     def __str__(self): 
         return f"{self.Movie_Title} - {self.Movie_Season} - {self.Movie_Episode}"
@@ -45,7 +50,13 @@ class Episode(models.Model):
     date = models.DateField(auto_now_add=True)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='episodes')
     
+    def get_absolute_url(self):
+        movie_name = slugify(self.movie.Movie_Title)
+        
+        return reverse('episode-detail', kwargs={
+            'movie_id': self.movie.id,
+            'movie_name': movie_name,
+            'movie_season': self.Season
+        })
     def __str__(self):
         return f"{self.movie.Movie_Title} - {self.Season} - Episode {self.Episode}"
-
-
