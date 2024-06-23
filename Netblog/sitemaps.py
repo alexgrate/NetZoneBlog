@@ -1,32 +1,30 @@
-from django.contrib import sitemaps
-from django.urls import reverse
+from django.contrib.sitemaps import Sitemap
 from .models import Movie
 
-
-class EpisodeSitemap(sitemaps.Sitemap):
-    changefreq = "daily"
-    priority = 0.6
+class MovieSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
 
     def items(self):
-        # Assuming you have a method to fetch episodes
         return Movie.objects.all()
 
     def lastmod(self, obj):
-        # Assuming you have a date field for last modification
         return obj.Movie_Date
+    
+    
+    # Netblog/sitemaps.py
 
-class StaticViewsSitemap(sitemaps.Sitemap):
-    
+from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
+
+class StaticViewsSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'daily'
-    
+    changefreq = 'monthly'
+
     def items(self):
-        return [
-            'Netblog-Home',
-            'Netblog-movies',
-            'Netblog-animes',
-            'Netblog-Search',
-        ]
-        
+        return ['Netblog-Home',
+                'Netblog-movies',
+                'Netblog-animes']
+
     def location(self, item):
         return reverse(item)

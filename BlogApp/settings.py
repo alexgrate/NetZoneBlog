@@ -28,12 +28,10 @@ SECRET_KEY = 'django-insecure-!auk=y0zo(5oaxussi&+!7u_&fc^exxo2xl=#r#tp@+=(@9*h5
 # DEBUG = os.environ.get("DEBUG")
 DEBUG = True
 
-DOMAIN = 'www.netzone.ng'
-SITE_NAME = 'netzone'
+
 
 ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng']
 
-SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps'
 ]
+
+SITE_ID = 1
 
 
 MIDDLEWARE = [

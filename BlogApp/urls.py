@@ -20,16 +20,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Netblog.views import load_more
 from django.contrib.sitemaps.views import sitemap
-from Netblog.sitemaps import StaticViewsSitemap
+from Netblog.sitemaps import MovieSitemap
 
 sitemaps = {
-    'sitemap': StaticViewsSitemap
+    'movies': MovieSitemap,
 }
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Netblog.urls')),
-    path("sitemap.xml", sitemap,{"sitemaps": sitemaps},name="django.contrib.sitemaps.views.sitemap",),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),  # added
     path('load/', load_more, name='load'),
 ]
 
