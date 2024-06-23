@@ -1604,4 +1604,4 @@ def sw_txt(request):
 
 def movie_detail(request, id):
     movie = get_object_or_404(Movie, id=id)
-    return render(request, 'Netblog/movie_detail.html', {'movie': movie})
+    return render(request, 'movie_detail.html', {'movie': movie})
