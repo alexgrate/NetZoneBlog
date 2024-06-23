@@ -1608,6 +1608,9 @@ def movie_detail(request, id):
 
 def robots_txt(request):
     robots_content = """
+    User-agent: *
+    Allow: /
+
     Sitemap: https://www.netzone.ng/sitemap.xml
     """
     return HttpResponse(robots_content, content_type='text/plain')
