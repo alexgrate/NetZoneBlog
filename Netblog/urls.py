@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='Netblog-Home'),
-    path('movie/<int:id>/', views.movie_detail, name='movie_detail'),
+    path('NetBlog/<int:id>', views.movie_detail, name='movie_detail'),
     path('NetBlog/Movies', views.movies, name='Netblog-movies'),
     path('NetBlog/Anime', views.anime, name='Netblog-animes'),
     path('NetBlog/Search', views.search, name='Netblog-Search'),
