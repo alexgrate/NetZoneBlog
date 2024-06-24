@@ -20,10 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Netblog.views import load_more
 from django.contrib.sitemaps.views import sitemap
-from Netblog.sitemaps import MovieSitemap
+from Netblog.sitemaps import MovieSitemap, StaticViewsSitemap, MovieTypeSitemap
 
 sitemaps = {
     'movies': MovieSitemap,
+    'static': StaticViewsSitemap,
+    'movie_types': MovieTypeSitemap,
 }
 
 urlpatterns = [

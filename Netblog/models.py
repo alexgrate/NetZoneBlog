@@ -38,7 +38,7 @@ class Movie(models.Model):
             img.save(self.Movie_Img.path)
             
     def get_absolute_url(self):
-        return reverse('movie_detail', args=[str(self.id)])
+        return reverse('Netblog-Pages', args=[str(self.id)])
 
 
 class Episode(models.Model):
