@@ -25,6 +25,9 @@ class Movie(models.Model):
     Movie_views = models.IntegerField(default=0)
     Movie_Tag = models.ManyToManyField(Movie_Tag)
 
+    class Meta:
+        ordering = ['id']
+        
     def __str__(self): 
         return f"{self.Movie_Title} - {self.Movie_Season} - {self.Movie_Episode}"
     
