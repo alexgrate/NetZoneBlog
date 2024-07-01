@@ -1614,3 +1614,4 @@ def robots_txt(request):
     Sitemap: https://www.netzone.ng/sitemap.xml
     """
     return HttpResponse(robots_content, content_type='text/plain')
+
