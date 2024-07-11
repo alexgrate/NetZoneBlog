@@ -298,8 +298,9 @@ def search(request):
 
     if request.method == 'POST':
         searched = request.POST['searched']
-        searched_movies = Movie.objects.filter(Movie_Title__contains = searched)
-        
+        searched_movies = Movie.objects.filter(
+            Q(Movie_Title__icontains=searched)
+        )        
         model = {'most_viewed_movies' : most_viewed_movies,'tags' : tags, 'actions' : actions, 'searched' : searched, 'searched_movies' : searched_movies, 'title': f'You Searched For {searched}'}
         return render(request, 'search.html', model)
     else:
