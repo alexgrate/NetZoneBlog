@@ -30,7 +30,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng']
+ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng', 'alexgrate.pythonanywhere.com']
 
 # Application definition
 
