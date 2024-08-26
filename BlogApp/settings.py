@@ -26,11 +26,11 @@ SECRET_KEY = 'django-insecure-!auk=y0zo(5oaxussi&+!7u_&fc^exxo2xl=#r#tp@+=(@9*h5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG")
-DEBUG = False
+DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['localhost','www.netzone.ng', '127.0.0.1', 'netzone.ng', 'alexgrate.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'alexgrate.pythonanywhere.com']
 
 # Application definition
 
@@ -85,14 +85,21 @@ WSGI_APPLICATION = 'BlogApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'netzonen_Movies',
+#         'USER': 'netzonen_AlexGrate',
+#         'PASSWORD' : 'Dominion@123',
+#         'HOST' : '160.119.252.183',
+#         'PORT' : '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'netzonen_Movies',
-        'USER': 'netzonen_AlexGrate',
-        'PASSWORD' : 'Dominion@123',
-        'HOST' : '160.119.252.183',
-        'PORT' : '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
